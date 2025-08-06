@@ -38,7 +38,7 @@ This repo demonstrates an AI-powered public speaking coach that analyzes your sp
 
 ## System Architecture:
 
-![Title](./includes%20/SystemDiag.png)
+![Title](./includes%20/SystemDiag.jpeg)
 
 ## Optimisation:   
 - **Text Summarization for Debates:** Integrated TextRank in the Debate Room to reduce transcript length before passing it to Gemma3n. This helps users speak longer per turn by staying within token limits.
