@@ -847,7 +847,9 @@ elif st.session_state.get("show_report"):
         if st.session_state.final_snapshots:
             st.subheader("Captured Snapshots:")
             cols = st.columns(3)
-            for i, snapshot_path in enumerate(st.session_state.final_snapshots):
+            # Display only the last 5 snapshots
+            last_5_snapshots = st.session_state.final_snapshots[-5:]
+            for i, snapshot_path in enumerate(last_5_snapshots):
                 if os.path.exists(snapshot_path):
                     with cols[i % 3]:
                         st.image(snapshot_path, width=100, caption=f"Snapshot {i+1}")
