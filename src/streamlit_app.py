@@ -1092,6 +1092,13 @@ else:
                     os.remove(st.session_state.audio_path)
                     del st.session_state.audio_path
 
-                st.session_state.run_analysis = False
-                st.session_state.transcript = None
-                st.rerun()
+                # Check if we should auto-end the debate session after 7 turns
+                if st.session_state.app_mode == "Debate" and len(st.session_state.history) >= 14:  # 7 user + 7 assistant messages = 14 total
+                    st.session_state.end_session_flow = True
+                    st.session_state.run_analysis = False
+                    st.session_state.transcript = None
+                    st.rerun()
+                else:
+                    st.session_state.run_analysis = False
+                    st.session_state.transcript = None
+                    st.rerun()
